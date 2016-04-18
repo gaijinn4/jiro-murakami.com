@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* masonry  */
+* { box-sizing: border-box; }
+html { overflow-y: scroll; }
+.grid-sizer, .grid-item {
+	width: 25%;
+}
+@media (max-width: 550px) {
+	.grid-item { width: 50%; }
+}
+.grid-item-w {
+	overflow:hidden;
+	margin-bottom: 10px;
+}
+.grid-item img, .grid-item-w img {
+	width: 100%;
+	display: block;
+	margin:0;
+	padding:0;
+}
+body,div,html {
+	margin:0;
+	padding:0;
+}
+/* 余白調節  */
+.grid {
+	margin:-2%;
+}
+.grid-item {
+	padding:2%;
+}
+
+

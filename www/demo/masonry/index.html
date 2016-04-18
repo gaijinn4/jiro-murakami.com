@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="export">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Cascading grid layout library">
+
+  <title>Masonry</title>
+	<style type="text/css">
+	<!--
+		* { box-sizing: border-box; }
+		html { overflow-y: scroll; }
+		.grid-sizer, .grid-item {
+			width: 25%;
+			}
+		.grid-item-w {
+			width: 50%;
+			}
+		.grid-item img, .grid-item-w img {
+			width: 100%;
+			display: block;
+			margin:0;
+			padding:0;
+			}
+		body,div,html {
+			margin:0;
+			padding:0;
+			}
+	-->
+	</style>
+    
+    <script src="js/jquery-1.12.2.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/jquery.infinitescroll.min.js"></script>
+    
+    
+	<script>
+      $(function(){
+        var $grid = $('.grid').css({ opacity: 0 });
+        $grid.imagesLoaded(function(){
+          $grid.animate({ opacity: 1 });
+          $grid.masonry({ itemSelector: '.grid-item' });
+        });
+    
+        $grid.infinitescroll({
+          navSelector  : 'ul.pagination',
+          nextSelector : 'ul.pagination a[rel=next]',
+          itemSelector : '.grid .grid-item',
+          loading: {
+            msgText: '',
+            finishedMsg: '',
+          }
+        }, function( newElements ) {
+          var $newElems = $( newElements ).css({ opacity: 0 });
+          $newElems.imagesLoaded(function(){
+            $newElems.animate({ opacity: 1 });
+            $grid.masonry( 'appended', $newElems, true );
+          });
+        });
+      });
+    </script>
+    
+
+
+</head>
+
+
+
+
+<body>
+
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer" }'>
+      <div class="grid-sizer"></div>
+      <div class="grid-item grid-item-w"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item grid-item-w"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+      <div class="grid-item"><img src="http://www.samue-e.com/images/PID296_07.jpg"></div>
+</div>
+
+
+    <ul class="pagination">
+          <li class="active"><a href="#">1</a></li>
+          <li class=""><a rel="next" href="index2.html">2</a></li>
+          <li class=""><a href="/soramugi?page=3">3</a></li>
+          <li class=""><a href="/soramugi?page=4">4</a></li>
+          <li class=""><a href="/soramugi?page=5">5</a></li>
+          <li class="disabled"><a href="#">&hellip;</a></li>
+		  <li><a href="/soramugi?page=503">Last &raquo;</a></li>
+    </ul>
+
+
+  
+  
+
+
+</body>
+</html>
